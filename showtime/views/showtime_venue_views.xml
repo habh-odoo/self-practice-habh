@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="showtime_venue_action" model="ir.actions.act_window">
+        <field name="name">Venues</field>
+        <field name="res_model">showtime.venue</field>
+        <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Venue
+          </p>
+        </field>
+    </record>
+
+    <record id="showtime_venue_tree" model="ir.ui.view">
+        <field name="name">showtime.venue.tree</field>
+        <field name="model">showtime.venue</field>
+        <field name="arch" type="xml">
+            <tree string="Tree View">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="type"/>
+            </tree>  
+        </field>
+    </record>
+
+    <record id="estate_venue_form" model="ir.ui.view">
+        <field name="name">showtime.venue.form</field>
+        <field name="model">showtime.venue</field>
+        <field name="arch" type="xml">
+            <form string="Form View">
+                <sheet>
+                    <h1>
+                    <group>
+                        <field name="name" nolabel="1" class="oe_inline" placeholder="Venue Name"/>
+                    </group>
+                    </h1>
+                    <notebook>
+                            <page string="Description">
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                                <group>
+                                    <field name="type"/>
+                                </group>
+                            </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field> 
+    </record>
+</odoo>

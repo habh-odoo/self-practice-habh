@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="showtime_menu_root" name="Showtime" web_icon="showtime,static/description/icon.png">
+        <menuitem id="showtime_first_level_menu" name="Venues">
+            <menuitem id="showtime_menu_venue_action" action="showtime_venue_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

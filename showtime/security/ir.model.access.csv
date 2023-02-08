@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+showtime.access_showtime_venue,access_showtime_venue,showtime.model_showtime_venue,base.group_user,1,1,1,1
