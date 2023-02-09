@@ -3,7 +3,7 @@
     <record id="showtime_venue_action" model="ir.actions.act_window">
         <field name="name">Venues</field>
         <field name="res_model">showtime.venue</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
          <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Create a new Venue
@@ -11,6 +11,32 @@
         </field>
     </record>
 
+    <record id="showtime_venue_kanban" model="ir.ui.view">
+        <field name="name">showtime.venue.kanban</field>
+        <field name="model">showtime.venue</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="type">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="description"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-12">
+                                    <strong><t t-esc="record.name.value"/></strong>
+                                </div>
+                            </div>
+                            <t t-if="record.description.value">
+                                <hr class="mt8 mb8"/>
+                                <t t-esc="record.description.value"/>
+                            </t>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
     <record id="showtime_venue_tree" model="ir.ui.view">
         <field name="name">showtime.venue.tree</field>
         <field name="model">showtime.venue</field>
