@@ -7,4 +7,5 @@ class ShowtimeVenue(models.Model):
 
     name=fields.Char(required=True)
     description=fields.Text()
-    type=fields.Selection(string="Venue Type",selection=[("theatre","Theatre"),("party_plot","Party Plot"),("stage","Stage")])
+    types = fields.Many2one("showtime.venue.types","Venue Type")
+    sections = fields.Many2many("showtime.sections","Sections")
