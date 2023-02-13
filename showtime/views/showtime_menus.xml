@@ -6,8 +6,6 @@
         </menuitem>
         <menuitem id="showtime_second_level_menu" name="Settings">
             <menuitem id="showtime_menu_venue_types_action" action="showtime_venue_types_action"/>
-            <menuitem id="showtime_menu_sections_action" action="showtime_sections_action"/>
-            <menuitem id="showtime_menu_tickets_action" action="showtime_tickets_action"/>
         </menuitem>
     </menuitem>
 </odoo>

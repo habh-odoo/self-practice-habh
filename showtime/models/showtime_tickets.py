@@ -7,5 +7,6 @@ class ShowtimeTickets(models.Model):
 
     name = fields.Char(required=True)
     price = fields.Integer(required=True)
-    max_qty = fields.Integer()
-    current_qty = fields.Integer(default=0)
+    max_qty = fields.Integer(required=True,default=200)
+    current_qty = fields.Integer(required=True,default=0)
+    show_id = fields.Many2one("showtime.shows")

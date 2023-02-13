@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="showtime_sections_action" model="ir.actions.act_window">
-        <field name="name">Sections</field>
-        <field name="res_model">showtime.sections</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-            Create a new Section
-            </p>
-        </field>
-    </record>
     <record id="showtime_sections_tree" model="ir.ui.view">
         <field name="name">showtime.sections.tree</field>
         <field name="model">showtime.sections</field>
         <field name="arch" type="xml">
             <tree string="Tree View">
                 <field name="name"/>
+                <field name="size"/>
+                <button name="show_views" type="object" string="Shows"/>
             </tree>
         </field>
     </record>
@@ -33,7 +25,6 @@
                     </h1>
                     <group>
                         <field name="size"/>
-                        <field name="ticket_type"/>
                     </group>
                 </sheet>
             </form>
