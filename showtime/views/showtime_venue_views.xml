@@ -15,9 +15,9 @@
         <field name="name">showtime.venue.kanban</field>
         <field name="model">showtime.venue</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="types">
+            <kanban default_group_by="type_id" group_create="false" group_delete="false">
                 <field name="name"/>
-                <field name="types"/>
+                <field name="type_id"/>
                 <field name="description"/>
                 <templates>
                     <t t-name="kanban-box">
@@ -29,10 +29,6 @@
                                     </strong>
                                 </div>
                             </div>
-                            <t t-if="record.description.value">
-                                <hr class="mt8 mb8"/>
-                                <t t-esc="record.description.value"/>
-                            </t>
                         </div>
                     </t>
                 </templates>
@@ -46,7 +42,7 @@
             <tree string="Tree View">
                 <field name="name"/>
                 <field name="description"/>
-                <field name="types"/>
+                <field name="type_id"/>
             </tree>
         </field>
     </record>
@@ -63,8 +59,8 @@
                         </group>
                     </h1>
                     <group>
-                        <field name="types"/>
-                        <field name="owner"/>
+                        <field name="type_id"/>
+                        <field name="owner_id"/>
                     </group>
                     <notebook>
                         <page string="Description">
@@ -81,10 +77,8 @@
                                 <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
                             </div>
                         </page>
-                        <page string="Sections">
-                            <group>
-                                <field name="sections" string=""/>
-                            </group>
+                        <page string="Sections">    
+                            <field name="section_ids"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -98,9 +92,8 @@
             <search string="Venues">
                 <field name="name"/>
                 <field name="description"/>
-                <filter name="types" string="Theatres" domain="[('types.name','=','Theatre')]"/>
                 <group string="Group by">
-                    <filter string="Type" name="types" context="{'group_by':'types'}"/>
+                    <filter string="Type" name="type_id" context="{'group_by':'type_id'}"/>
                 </group>
             </search>
         </field>

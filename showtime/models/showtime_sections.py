@@ -8,13 +8,18 @@ class ShowtimeSections(models.Model):
     name = fields.Char(required=True)
     size = fields.Integer()
     show_ids = fields.One2many("showtime.shows","section_id",string="Shows")
-    venue_id = fields.Many2one("showtime.venue")
+    venue_id = fields.Many2one("showtime.venue",ondelete="cascade")
 
+    def name_get(self):
+        result = []
+        for section in self:
+            name = section.venue_id.name + ' - ' + section.name
+            result.append((section.id, name))
+        return result
 
-    def show_views(self):
-        return {
-            'view_mode': 'gantt',
-            'view_id': self.env.ref("showtime.showtime_shows_gantt").id,
-            'res_model':"showtime.shows",
-            'type':"ir.actions.act_window"
-        }
+    def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        domain = []
+        if name:
+            domain=['|',('name',operator,name),('venue_id',operator,name)]
+        return self._search(domain+args,limit=limit,access_rights_uid=name_get_uid)

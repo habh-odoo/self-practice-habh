@@ -7,7 +7,6 @@
             <tree string="Tree View">
                 <field name="name"/>
                 <field name="size"/>
-                <button name="show_views" type="object" string="Shows"/>
             </tree>
         </field>
     </record>

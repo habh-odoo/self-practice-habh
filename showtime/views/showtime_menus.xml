@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="showtime_menu_root" name="Showtime" web_icon="showtime,static/description/icon.png">
-        <menuitem id="showtime_first_level_menu" name="Venues">
-            <menuitem id="showtime_menu_venue_action" action="showtime_venue_action"/>
-        </menuitem>
-        <menuitem id="showtime_second_level_menu" name="Settings">
+        <menuitem id="showtime_first_level_menu" name="Venues" action="showtime_venue_action"/>
+        <menuitem id="showtime_second_level_menu" name="Shows" action="showtime_shows_action"/>
+        <menuitem id="showtime_third_level_menu" name="Settings">
             <menuitem id="showtime_menu_venue_types_action" action="showtime_venue_types_action"/>
         </menuitem>
     </menuitem>
