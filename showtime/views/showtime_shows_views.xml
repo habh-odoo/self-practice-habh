@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="showtime_shows_action" model="ir.actions.act_window">
         <field name="name">Shows</field>
         <field name="res_model">showtime.shows</field>
@@ -11,6 +10,7 @@
             </p>
         </field>
     </record>
+    
     <record id="showtime_shows_form" model="ir.ui.view">
         <field name="name">showtime.shows.form</field>
         <field name="model">showtime.shows</field>
@@ -28,12 +28,14 @@
                         <field name="venue_type_id" readonly="1" force_save="1"/>
                         <field name="start_time"/>
                         <field name="end_time"/>
+                        <field name="show_type"/>
                         <field name="ticket_ids"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
+
     <record id="showtime_shows_gantt" model="ir.ui.view">
         <field name="name">showtime.shows.gantt</field>
         <field name="model">showtime.shows</field>

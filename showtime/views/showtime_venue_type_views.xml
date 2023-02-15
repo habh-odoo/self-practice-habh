@@ -10,6 +10,7 @@
             </p>
         </field>
     </record>
+    
     <record id="showtime_venue_types_tree" model="ir.ui.view">
         <field name="name">showtime.venue.types.tree</field>
         <field name="model">showtime.venue.types</field>

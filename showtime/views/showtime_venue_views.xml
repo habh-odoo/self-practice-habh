@@ -77,7 +77,7 @@
                                 <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
                             </div>
                         </page>
-                        <page string="Sections">    
+                        <page string="Sections">
                             <field name="section_ids"/>
                         </page>
                     </notebook>
@@ -85,6 +85,7 @@
             </form>
         </field>
     </record>
+    
     <record id="showtime_venue_search" model="ir.ui.view">
         <field name="name">showtime.venue.search</field>
         <field name="model">showtime.venue</field>

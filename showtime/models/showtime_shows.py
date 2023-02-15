@@ -16,8 +16,8 @@ class ShowtimeShows(models.Model):
     start_time = fields.Datetime(default=lambda self: roundtime(fields.Datetime.now()))
     end_time = fields.Datetime(default=lambda self: roundtime(fields.Datetime.now())+relativedelta(hours=2))
     ticket_ids = fields.One2many("showtime.tickets","show_id",string="Tickets")
-    
-
+    show_type = fields.Selection(string="Type of Seating",selection=[("open","Open Seating"),("alloted","Alloted Seating")],default="alloted")
+        
     @api.onchange("section_id")
     def _onchange_section_id(self):
         self.venue_id = self.section_id.venue_id
