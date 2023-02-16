@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="showtime_venue_0" model="showtime.venue">
+        <field name="name">Cinepolis</field>
+        <field name="description">Movie Theatre Near Thaltej</field>
+        <field name="type_id" ref="showtime_venue_type_0"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'Screen 1','size': 200}),
+            Command.create({'name':'Screen 2','size': 200}),
+        ]"/>
+    </record>
+    <record id="showtime_venue_1" model="showtime.venue">
+        <field name="name">Cinemax</field>
+        <field name="description">Movie Theatre Near Vastrapur</field>
+        <field name="type_id" ref="showtime_venue_type_0"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'Screen 1','size': 300}),
+            Command.create({'name':'Screen 2','size': 300}),
+            Command.create({'name':'Screen 3','size': 300}),
+        ]"/>
+    </record>
+    <record id="showtime_venue_2" model="showtime.venue">
+        <field name="name">Jalsa Party Plot</field>
+        <field name="description">Party Plot near S.G. Highway</field>
+        <field name="type_id" ref="showtime_venue_type_1"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'General Section','size': 500}),
+        ]"/>
+    </record>
+    <record id="showtime_venue_3" model="showtime.venue">
+        <field name="name">R.K. Farm</field>
+        <field name="description">Party Plot/Farm House</field>
+        <field name="type_id" ref="showtime_venue_type_1"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'General Section','size': 500}),
+        ]"/>
+    </record>
+    <record id="showtime_venue_4" model="showtime.venue">
+        <field name="name">Canvas Laugh Club</field>
+        <field name="description">Stage for Comedy Shows</field>
+        <field name="type_id" ref="showtime_venue_type_2"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'General Section','size': 100}),
+        ]"/>
+    </record>
+    <record id="showtime_venue_5" model="showtime.venue">
+        <field name="name">Town Hall</field>
+        <field name="description">Town Hall Ahmedabad</field>
+        <field name="type_id" ref="showtime_venue_type_2"/>
+        <field name="section_ids" eval="[
+            Command.clear(),
+            Command.create({'name':'General Section','size': 300}),
+        ]"/>
+    </record>
+</odoo>

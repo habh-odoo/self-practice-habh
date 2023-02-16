@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="showtime_venue_type_0" model="showtime.venue.types">
+            <field name="name">Theatre</field>
+        </record>
+        <record id="showtime_venue_type_1" model="showtime.venue.types">
+            <field name="name">Party Plot</field>
+        </record>
+        <record id="showtime_venue_type_2" model="showtime.venue.types">
+            <field name="name">Stage</field>
+        </record>
+    </data>
+</odoo>

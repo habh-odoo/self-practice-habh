@@ -10,7 +10,11 @@
         'views/showtime_sections_views.xml',
         'views/showtime_venue_views.xml',
         'views/showtime_venue_type_views.xml',
-        'views/showtime_menus.xml'
+        'views/showtime_menus.xml',
+        'data/showtime_data.xml'
+    ],
+    'demo':[
+        'data/demo_data.xml'
     ],
     'application':True
 }

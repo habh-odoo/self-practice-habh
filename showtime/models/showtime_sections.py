@@ -4,9 +4,12 @@ from odoo import fields,models
 class ShowtimeSections(models.Model):
     _name="showtime.sections"
     _description="ShowTime Section Description"
+    _sql_constraints = [
+        ("size","CHECK(size>0)","Size must be strictly Positive.")
+    ]
 
     name = fields.Char(required=True)
-    size = fields.Integer()
+    size = fields.Integer(required=True,string="Size of Section (in meters)")
     show_ids = fields.One2many("showtime.shows","section_id",string="Shows")
     venue_id = fields.Many2one("showtime.venue",ondelete="cascade")
 
