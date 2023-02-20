@@ -4,12 +4,6 @@
         <field name="name">Cinepolis</field>
         <field name="description">Movie Theatre Near Thaltej</field>
         <field name="type_id" ref="showtime_venue_type_0"/>
-        <!-- <field name="section_ids" eval="[
-            Command.create({
-                'name':'Screen 1',
-                'size':'200',
-            })
-        ]"/> -->
     </record>
     <record id="showtime_venue_0_section_0" model="showtime.sections">
         <field name="name">Screen 1</field>
@@ -26,19 +20,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_0"/>
-        <field name="max_qty">60</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_0_show_0_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_0"/>
-        <field name="max_qty">100</field>
+        <field name="rows">6</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_0_show_0_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_0"/>
-        <field name="max_qty">20</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_0_show_1" model="showtime.shows">
         <field name="name">Inception</field>
@@ -50,19 +47,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_1"/>
-        <field name="max_qty">60</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_0_show_1_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_1"/>
-        <field name="max_qty">100</field>
+        <field name="rows">6</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_0_show_1_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_0_section_0_show_1"/>
-        <field name="max_qty">20</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1" model="showtime.sections">
         <field name="name">Screen 2</field>
@@ -79,19 +79,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">100</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_0"/>
-        <field name="max_qty">60</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1_show_0_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">200</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_0"/>
-        <field name="max_qty">100</field>
+        <field name="rows">6</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1_show_0_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">300</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_0"/>
-        <field name="max_qty">20</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1_show_1" model="showtime.shows">
         <field name="name">Inception</field>
@@ -103,19 +106,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_1"/>
-        <field name="max_qty">60</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1_show_1_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_1"/>
-        <field name="max_qty">100</field>
+        <field name="rows">6</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_0_section_1_show_1_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_0_section_1_show_1"/>
-        <field name="max_qty">20</field>
+        <field name="rows">2</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1" model="showtime.venue">
         <field name="name">Cinemax</field>
@@ -137,19 +143,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_0"/>
-        <field name="max_qty">80</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_0_show_0_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_0"/>
-        <field name="max_qty">150</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_0_show_0_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_0"/>
-        <field name="max_qty">40</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_0_show_1" model="showtime.shows">
         <field name="name">Shahzam</field>
@@ -161,19 +170,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_1"/>
-        <field name="max_qty">60</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_0_show_1_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_1"/>
-        <field name="max_qty">100</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_0_show_1_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_0_show_1"/>
-        <field name="max_qty">20</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1" model="showtime.sections">
         <field name="name">Screen 2</field>
@@ -190,19 +202,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_0"/>
-        <field name="max_qty">80</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1_show_0_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_0"/>
-        <field name="max_qty">150</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1_show_0_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_0"/>
-        <field name="max_qty">40</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1_show_1" model="showtime.shows">
         <field name="name">RRR</field>
@@ -214,19 +229,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_1"/>
-        <field name="max_qty">60</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1_show_1_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_1"/>
-        <field name="max_qty">100</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_1_show_1_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_1_show_1"/>
-        <field name="max_qty">20</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2" model="showtime.sections">
         <field name="name">Screen 3</field>
@@ -243,19 +261,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_0"/>
-        <field name="max_qty">80</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2_show_0_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_0"/>
-        <field name="max_qty">150</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2_show_0_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_0"/>
-        <field name="max_qty">40</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2_show_1" model="showtime.shows">
         <field name="name">Shahzam</field>
@@ -267,19 +288,22 @@
         <field name="name">Budget Seats</field>
         <field name="price">150</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_1"/>
-        <field name="max_qty">60</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2_show_1_ticket_1" model="showtime.tickets">
         <field name="name">Normal Seats</field>
         <field name="price">250</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_1"/>
-        <field name="max_qty">100</field>
+        <field name="rows">8</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_1_section_2_show_1_ticket_2" model="showtime.tickets">
         <field name="name">VIP Seats</field>
         <field name="price">350</field>
         <field name="show_id" ref="showtime_venue_1_section_2_show_1"/>
-        <field name="max_qty">20</field>
+        <field name="rows">3</field>
+        <field name="columns">20</field>
     </record>
     <record id="showtime_venue_2" model="showtime.venue">
         <field name="name">Jalsa Party Plot</field>
@@ -347,13 +371,15 @@
         <field name="name">Normal Seat</field>
         <field name="price">300</field>
         <field name="show_id" ref="showtime_venue_4_section_0_show_0"/>
-        <field name="max_qty">150</field>
+        <field name="rows">5</field>
+        <field name="columns">30</field>
     </record>
     <record id="showtime_venue_4_section_0_show_0_ticket_1" model="showtime.tickets">
         <field name="name">VIP Seat</field>
         <field name="price">600</field>
         <field name="show_id" ref="showtime_venue_4_section_0_show_0"/>
-        <field name="max_qty">50</field>
+        <field name="rows">2</field>
+        <field name="columns">30</field>
     </record>
     <record id="showtime_venue_4_section_0_show_1" model="showtime.shows">
         <field name="name">Manan Desai</field>
@@ -365,13 +391,15 @@
         <field name="name">Normal Seat</field>
         <field name="price">200</field>
         <field name="show_id" ref="showtime_venue_4_section_0_show_1"/>
-        <field name="max_qty">150</field>
+        <field name="rows">5</field>
+        <field name="columns">30</field>
     </record>
     <record id="showtime_venue_4_section_0_show_1_ticket_1" model="showtime.tickets">
         <field name="name">VIP Seat</field>
         <field name="price">400</field>
         <field name="show_id" ref="showtime_venue_4_section_0_show_1"/>
-        <field name="max_qty">50</field>
+        <field name="rows">2</field>
+        <field name="columns">30</field>
     </record>
     <record id="showtime_venue_5" model="showtime.venue">
         <field name="name">Town Hall</field>

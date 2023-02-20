@@ -20,7 +20,7 @@
                     <h1>
                         <group col="1">
                             <field name="name" nolabel="1" class="oe_inline" placeholder="Show Name"/>
-                            <field name="rating" widget="priority" nolabel="1"/>
+                            <field name="rating" widget="priority" nolabel="1" class="oe_right"/>
                         </group>
                     </h1>
                     <group>
