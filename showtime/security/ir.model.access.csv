@@ -4,3 +4,4 @@ showtime.access_showtime_venue_types,access_showtime_venue_types,showtime.model_
 showtime.access_showtime_sections,access_showtime_sections,showtime.model_showtime_sections,base.group_user,1,1,1,1
 showtime.access_showtime_tickets,access_showtime_tickets,showtime.model_showtime_tickets,base.group_user,1,1,1,1
 showtime.access_showtime_shows,access_showtime_shows,showtime.model_showtime_shows,base.group_user,1,1,1,1
+showtime.access_showtime_venue_tag,access_showtime_venue_tag,showtime.model_showtime_venue_tag,base.group_user,1,1,1,1

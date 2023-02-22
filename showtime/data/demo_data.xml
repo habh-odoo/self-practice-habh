@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="showtime_tag_0" model="showtime.venue.tag">
+        <field name="name">Comfortable</field>
+        <field name="color">10</field>
+    </record>
+    <record id="showtime_tag_1" model="showtime.venue.tag">
+        <field name="name">Expensive</field>
+        <field name="color">4</field>
+    </record>
     <record id="showtime_venue_0" model="showtime.venue">
         <field name="name">Cinepolis</field>
         <field name="description">Movie Theatre Near Thaltej</field>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_0')), Command.link(ref('showtime_tag_1'))]"/>
+        <field name="owner_id" ref="base.res_partner_12"/>
         <field name="type_id" ref="showtime_venue_type_0"/>
     </record>
     <record id="showtime_venue_0_section_0" model="showtime.sections">
@@ -126,6 +136,7 @@
     <record id="showtime_venue_1" model="showtime.venue">
         <field name="name">Cinemax</field>
         <field name="description">Movie Theatre Near Vastrapur</field>
+        <field name="owner_id" ref="base.res_partner_12"/>
         <field name="type_id" ref="showtime_venue_type_0"/>
     </record>
     <record id="showtime_venue_1_section_0" model="showtime.sections">
@@ -308,6 +319,7 @@
     <record id="showtime_venue_2" model="showtime.venue">
         <field name="name">Jalsa Party Plot</field>
         <field name="description">Party Plot near S.G. Highway</field>
+        <field name="owner_id" ref="base.res_partner_2"/>
         <field name="type_id" ref="showtime_venue_type_1"/>
     </record>
     <record id="showtime_venue_2_section_0" model="showtime.sections">
@@ -331,6 +343,7 @@
     <record id="showtime_venue_3" model="showtime.venue">
         <field name="name">R.K. Farm</field>
         <field name="description">Party Plot/Farm House</field>
+        <field name="owner_id" ref="base.res_partner_2"/>
         <field name="type_id" ref="showtime_venue_type_1"/>
     </record>
     <record id="showtime_venue_3_section_0" model="showtime.sections">
@@ -353,6 +366,7 @@
     </record>
     <record id="showtime_venue_4" model="showtime.venue">
         <field name="name">Canvas Laugh Club</field>
+        <field name="owner_id" ref="base.res_partner_2"/>
         <field name="description">Stage for Comedy Shows</field>
         <field name="type_id" ref="showtime_venue_type_2"/>
     </record>
@@ -404,6 +418,7 @@
     <record id="showtime_venue_5" model="showtime.venue">
         <field name="name">Town Hall</field>
         <field name="description">Town Hall Ahmedabad</field>
+        <field name="owner_id" ref="base.res_partner_12"/>
         <field name="type_id" ref="showtime_venue_type_2"/>
     </record>
     <record id="showtime_venue_5_section_0" model="showtime.sections">

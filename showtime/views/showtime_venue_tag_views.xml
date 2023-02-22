@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="showtime_venue_tag_action" model="ir.actions.act_window">
+        <field name="name">Venue Tags</field>
+        <field name="res_model">showtime.venue.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new Venue Tag
+            </p>
+        </field>
+    </record>
+
+    <record id="showtime_venue_tag_tree" model="ir.ui.view">
+        <field name="name">showtime.venue.tag.tree</field>
+        <field name="model">showtime.venue.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Tree View" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="showtime_venue_tag_form" model="ir.ui.view">
+        <field name="name">showtime.venue.tag.form</field>
+        <field name="model">showtime.venue.tag</field>
+        <field name="arch" type="xml">
+            <form string="Form View">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

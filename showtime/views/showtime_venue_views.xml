@@ -15,18 +15,32 @@
         <field name="name">showtime.venue.kanban</field>
         <field name="model">showtime.venue</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="type_id" group_create="false" group_delete="false">
+            <kanban default_group_by="type_id" group_create="false" group_delete="false" records_draggable="false">
                 <field name="name"/>
                 <field name="type_id"/>
                 <field name="description"/>
+                <field name="city"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.type_id.value)} oe_kanban_global_click">
-                            <div class="row">
-                                <div class="col-12">
-                                    <strong>
-                                        <t t-esc="record.name.value"/>
-                                    </strong>
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.type_id.value)} oe_kanban_card oe_kanban_global_click">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                            <div class="text-muted">
+                                Owned by : <field name="owner_id"/>
+                                <div t-if="record.description">
+                                        Description : <field name="description"/>
+                                </div>
+                                <div t-if="record.city.raw_value">
+                                        City : <field name="city"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div t-if="record.tag_ids" class="oe_kanban_bottom_left">
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <b>Sections : <field name="section_count"/></b> 
                                 </div>
                             </div>
                         </div>
@@ -85,7 +99,7 @@
             </form>
         </field>
     </record>
-    
+
     <record id="showtime_venue_search" model="ir.ui.view">
         <field name="name">showtime.venue.search</field>
         <field name="model">showtime.venue</field>
