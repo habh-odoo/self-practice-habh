@@ -12,17 +12,18 @@ class ShowtimeTickets(models.Model):
     price = fields.Integer(required=True)
     max_qty = fields.Integer(string="Total Tickets",compute="_compute_max_qty",store=True,inverse="_inverse_max_qty",default=0)
     current_qty = fields.Integer(required=True,default=0,string="Booked Tickets")
+    remaining_qty = fields.Integer(compute="_compute_remaining_qty")
     show_id = fields.Many2one("showtime.shows")
     rows = fields.Integer(compute="_compute_max_qty",inverse="_inverse_max_qty",store=True)
     columns = fields.Integer(compute="_compute_max_qty",inverse="_inverse_max_qty",store=True)
-    show_type = fields.Selection(string="Type of Seating",selection=[("open","Open Seating"),("alloted","Alloted Seating")],compute="_compute_show_type")
+    show_type = fields.Selection(string="Type of Seating",related="show_id.show_type")
 
-    @api.depends("show_id")
-    def _compute_show_type(self):
+    @api.depends("max_qty","current_qty")
+    def _compute_remaining_qty(self):
         for record in self:
-            record.show_type = record.show_id.show_type
-
-    @api.depends("show_id.show_type","rows","columns")
+            record.remaining_qty = record.max_qty-record.current_qty
+    
+    @api.depends("show_type","rows","columns")
     def _compute_max_qty(self):
         for record in self:
             if(record.show_type=="alloted"):

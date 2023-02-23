@@ -8,7 +8,7 @@ class ShowtimeVenue(models.Model):
     name=fields.Char(required=True)
     description=fields.Text()
     owner_id = fields.Many2one("res.partner",string="Owned by",required=True)
-    type_id = fields.Many2one("showtime.venue.types","Venue Type")
+    venue_type_id = fields.Many2one("showtime.venue.types","Venue Type")
     tag_ids = fields.Many2many("showtime.venue.tag")
     section_ids = fields.One2many("showtime.sections","venue_id",string="Sections")
     street = fields.Char()

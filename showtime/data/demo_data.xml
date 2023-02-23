@@ -2,18 +2,22 @@
 <odoo>
     <record id="showtime_tag_0" model="showtime.venue.tag">
         <field name="name">Comfortable</field>
-        <field name="color">10</field>
+        <field name="color">1</field>
     </record>
     <record id="showtime_tag_1" model="showtime.venue.tag">
         <field name="name">Expensive</field>
         <field name="color">4</field>
     </record>
+    <record id="showtime_tag_2" model="showtime.venue.tag">
+        <field name="name">Cheap</field>
+        <field name="color">10</field>
+    </record>
     <record id="showtime_venue_0" model="showtime.venue">
         <field name="name">Cinepolis</field>
         <field name="description">Movie Theatre Near Thaltej</field>
-        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_0')), Command.link(ref('showtime_tag_1'))]"/>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_0'))]"/>
         <field name="owner_id" ref="base.res_partner_12"/>
-        <field name="type_id" ref="showtime_venue_type_0"/>
+        <field name="venue_type_id" ref="showtime_venue_type_0"/>
     </record>
     <record id="showtime_venue_0_section_0" model="showtime.sections">
         <field name="name">Screen 1</field>
@@ -22,6 +26,7 @@
     </record>
     <record id="showtime_venue_0_section_0_show_0" model="showtime.shows">
         <field name="name">Avengers</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=2)"/>
         <field name="section_id" ref="showtime_venue_0_section_0"/>
@@ -49,6 +54,7 @@
     </record>
     <record id="showtime_venue_0_section_0_show_1" model="showtime.shows">
         <field name="name">Inception</field>
+        <field name="rating">5</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=2)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')"/>
         <field name="section_id" ref="showtime_venue_0_section_0"/>
@@ -81,6 +87,7 @@
     </record>
     <record id="showtime_venue_0_section_1_show_0" model="showtime.shows">
         <field name="name">Avengers</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=4)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=2)"/>
         <field name="section_id" ref="showtime_venue_0_section_1"/>
@@ -108,6 +115,7 @@
     </record>
     <record id="showtime_venue_0_section_1_show_1" model="showtime.shows">
         <field name="name">Inception</field>
+        <field name="rating">5</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=2)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')"/>
         <field name="section_id" ref="showtime_venue_0_section_1"/>
@@ -137,7 +145,8 @@
         <field name="name">Cinemax</field>
         <field name="description">Movie Theatre Near Vastrapur</field>
         <field name="owner_id" ref="base.res_partner_12"/>
-        <field name="type_id" ref="showtime_venue_type_0"/>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_0')), Command.link(ref('showtime_tag_1'))]"/>
+        <field name="venue_type_id" ref="showtime_venue_type_0"/>
     </record>
     <record id="showtime_venue_1_section_0" model="showtime.sections">
         <field name="name">Screen 1</field>
@@ -146,6 +155,7 @@
     </record>
     <record id="showtime_venue_1_section_0_show_0" model="showtime.shows">
         <field name="name">Batman</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=2)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=4)"/>
         <field name="section_id" ref="showtime_venue_1_section_0"/>
@@ -173,6 +183,7 @@
     </record>
     <record id="showtime_venue_1_section_0_show_1" model="showtime.shows">
         <field name="name">Shahzam</field>
+        <field name="rating">3</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=4)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=6)"/>
         <field name="section_id" ref="showtime_venue_1_section_0"/>
@@ -205,6 +216,7 @@
     </record>
     <record id="showtime_venue_1_section_1_show_0" model="showtime.shows">
         <field name="name">KGF</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=6)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=8)"/>
         <field name="section_id" ref="showtime_venue_1_section_1"/>
@@ -232,6 +244,7 @@
     </record>
     <record id="showtime_venue_1_section_1_show_1" model="showtime.shows">
         <field name="name">RRR</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=8)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=10)"/>
         <field name="section_id" ref="showtime_venue_1_section_1"/>
@@ -264,6 +277,7 @@
     </record>
     <record id="showtime_venue_1_section_2_show_0" model="showtime.shows">
         <field name="name">Batman</field>
+        <field name="rating">4</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=2)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=4)"/>
         <field name="section_id" ref="showtime_venue_1_section_2"/>
@@ -291,6 +305,7 @@
     </record>
     <record id="showtime_venue_1_section_2_show_1" model="showtime.shows">
         <field name="name">Shahzam</field>
+        <field name="rating">3</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=4)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=6)"/>
         <field name="section_id" ref="showtime_venue_1_section_2"/>
@@ -319,8 +334,9 @@
     <record id="showtime_venue_2" model="showtime.venue">
         <field name="name">Jalsa Party Plot</field>
         <field name="description">Party Plot near S.G. Highway</field>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_2'))]"/>
         <field name="owner_id" ref="base.res_partner_2"/>
-        <field name="type_id" ref="showtime_venue_type_1"/>
+        <field name="venue_type_id" ref="showtime_venue_type_1"/>
     </record>
     <record id="showtime_venue_2_section_0" model="showtime.sections">
         <field name="name">General Plot</field>
@@ -329,6 +345,7 @@
     </record>
     <record id="showtime_venue_2_section_0_show_0" model="showtime.shows">
         <field name="name">Garba</field>
+        <field name="rating">3</field>
         <field name="show_type">open</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=2)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=6)"/>
@@ -336,7 +353,7 @@
     </record>
     <record id="showtime_venue_2_section_0_show_0_ticket_0" model="showtime.tickets">
         <field name="name">Entry Ticket</field>
-        <field name="price">500</field>
+        <field name="price">300</field>
         <field name="show_id" ref="showtime_venue_2_section_0_show_0"/>
         <field name="max_qty">500</field>
     </record>
@@ -344,7 +361,8 @@
         <field name="name">R.K. Farm</field>
         <field name="description">Party Plot/Farm House</field>
         <field name="owner_id" ref="base.res_partner_2"/>
-        <field name="type_id" ref="showtime_venue_type_1"/>
+        <field name="venue_type_id" ref="showtime_venue_type_1"/>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_1'))]"/>
     </record>
     <record id="showtime_venue_3_section_0" model="showtime.sections">
         <field name="name">General Plot</field>
@@ -353,6 +371,7 @@
     </record>
     <record id="showtime_venue_3_section_0_show_0" model="showtime.shows">
         <field name="name">Garba</field>
+        <field name="rating">2</field>
         <field name="show_type">open</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=4)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=8)"/>
@@ -368,7 +387,8 @@
         <field name="name">Canvas Laugh Club</field>
         <field name="owner_id" ref="base.res_partner_2"/>
         <field name="description">Stage for Comedy Shows</field>
-        <field name="type_id" ref="showtime_venue_type_2"/>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_0'))]"/>
+        <field name="venue_type_id" ref="showtime_venue_type_2"/>
     </record>
     <record id="showtime_venue_4_section_0" model="showtime.sections">
         <field name="name">General Section</field>
@@ -377,6 +397,7 @@
     </record>
     <record id="showtime_venue_4_section_0_show_0" model="showtime.shows">
         <field name="name">Amit Tandon</field>
+        <field name="rating">3</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=5)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=3)"/>
         <field name="section_id" ref="showtime_venue_4_section_0"/>
@@ -397,6 +418,7 @@
     </record>
     <record id="showtime_venue_4_section_0_show_1" model="showtime.shows">
         <field name="name">Manan Desai</field>
+        <field name="rating">3</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=3)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=1)"/>
         <field name="section_id" ref="showtime_venue_4_section_0"/>
@@ -418,8 +440,9 @@
     <record id="showtime_venue_5" model="showtime.venue">
         <field name="name">Town Hall</field>
         <field name="description">Town Hall Ahmedabad</field>
+        <field name="tag_ids" eval="[Command.link(ref('showtime_tag_2'))]"/>
         <field name="owner_id" ref="base.res_partner_12"/>
-        <field name="type_id" ref="showtime_venue_type_2"/>
+        <field name="venue_type_id" ref="showtime_venue_type_2"/>
     </record>
     <record id="showtime_venue_5_section_0" model="showtime.sections">
         <field name="name">General Section</field>
@@ -428,6 +451,7 @@
     </record>
     <record id="showtime_venue_5_section_0_show_0" model="showtime.shows">
         <field name="name">Dance Show</field>
+        <field name="rating">1</field>
         <field name="show_type">open</field>
         <field name="start_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')-relativedelta(hours=4)"/>
         <field name="end_time" eval="datetime.strptime(datetime.now().strftime('%Y-%m-%d %H'), '%Y-%m-%d %H')+relativedelta(hours=1)"/>

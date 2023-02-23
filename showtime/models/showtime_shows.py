@@ -18,18 +18,27 @@ class ShowtimeShows(models.Model):
     name = fields.Char(required=True)
     description = fields.Text()
     section_id = fields.Many2one("showtime.sections",ondelete="cascade")
-    venue_id = fields.Many2one("showtime.venue",compute="_compute_venue",store=True)
-    venue_type_id = fields.Many2one("showtime.venue.types",compute="_compute_venue",store=True)
-    start_time = fields.Datetime()
-    end_time = fields.Datetime()
-    ticket_ids = fields.One2many("showtime.tickets","show_id",string="Tickets")
-    show_type = fields.Selection(string="Type of Seating",selection=[("open","Open Seating"),("alloted","Alloted Seating")],default="alloted")
-    rating = fields.Selection(RATING,string="Rating")
-        
-    @api.depends("section_id")
-    def _compute_venue(self):
+    venue_id = fields.Many2one("showtime.venue",related="section_id.venue_id",store=True)
+    venue_type_id = fields.Many2one("showtime.venue.types",related="section_id.venue_type_id",store=True)
+    start_time = fields.Datetime(required=True)
+    end_time = fields.Datetime(required=True)
+    ticket_ids = fields.One2many("showtime.tickets","show_id",string="Tickets",required=True)
+    show_type = fields.Selection(string="Type of Seating",selection=[("open","Open Seating"),("alloted","Alloted Seating")],default="alloted",required=True)
+    rating = fields.Selection(RATING,string="Rating",default="0")
+    int_rating = fields.Integer(compute="_compute_int_rating",store=True)
+    state = fields.Selection(selection=[("booking","Booking"),("inprogress","In-Progress"),("finished","Finished")],default="booking",compute="_compute_state",store=True)
+
+    @api.depends("rating")
+    def _compute_int_rating(self):
         for record in self:
-            if(record.section_id):
-                record.venue_id = record.section_id.venue_id
-                record.venue_type_id = record.venue_id.type_id
-        
+            record.int_rating = int(record.rating)
+
+    @api.depends("start_time","end_time")
+    def _compute_state(self):
+        for record in self:
+            if(fields.Datetime.now()<record.start_time):
+                record.state="booking"
+            elif(fields.Datetime.now()>record.end_time):
+                record.state="finished"
+            else:
+                record.state="inprogress"

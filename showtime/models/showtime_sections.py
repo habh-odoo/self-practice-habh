@@ -12,6 +12,7 @@ class ShowtimeSections(models.Model):
     size = fields.Integer(required=True,string="Size of Section (in meters)")
     show_ids = fields.One2many("showtime.shows","section_id",string="Shows")
     venue_id = fields.Many2one("showtime.venue",ondelete="cascade")
+    venue_type_id = fields.Many2one("showtime.venue.types",related="venue_id.venue_type_id")
 
     def name_get(self):
         result = []

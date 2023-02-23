@@ -9,6 +9,7 @@
                 <field name="price"/>
                 <field name="max_qty"/>
                 <field name="current_qty"/>
+                <field name="remaining_qty"/>
             </tree>
         </field>
     </record>
