@@ -5,3 +5,4 @@ showtime.access_showtime_sections,access_showtime_sections,showtime.model_showti
 showtime.access_showtime_tickets,access_showtime_tickets,showtime.model_showtime_tickets,base.group_user,1,1,1,1
 showtime.access_showtime_shows,access_showtime_shows,showtime.model_showtime_shows,base.group_user,1,1,1,1
 showtime.access_showtime_venue_tag,access_showtime_venue_tag,showtime.model_showtime_venue_tag,base.group_user,1,1,1,1
+showtime.access_showtime_ticket_order,access_showtime_ticket_order,showtime.model_showtime_ticket_order,base.group_user,1,1,1,1

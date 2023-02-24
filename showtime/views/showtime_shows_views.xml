@@ -11,6 +11,19 @@
             </p>
         </field>
     </record>
+
+    <record id="showtime_shows_section_action" model="ir.actions.act_window">
+        <field name="name">Shows</field>
+        <field name="res_model">showtime.shows</field>
+        <field name="view_mode">gantt,form</field>
+        <field name="domain">[('section_id','=',active_id)]</field>
+        <field name="context">{'search_default_not_started': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new Show
+            </p>
+        </field>
+    </record>
     
     <record id="showtime_shows_form" model="ir.ui.view">
         <field name="name">showtime.shows.form</field>
@@ -21,11 +34,13 @@
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Finished" bg_color="bg-success" states="finished"/>
+                    <widget name="web_ribbon" title="In-Progress" bg_color="bg-primary" states="inprogress"/>
                     <h1>
                         <group col="1">
                             <field name="name" nolabel="1" class="oe_inline" placeholder="Show Name"/>
-                            <field name="rating" widget="priority" nolabel="1" class="oe_right"/>
                         </group>
+                        <field name="rating" widget="priority" nolabel="1"/>
                     </h1>
                     <group>
                         <field name="section_id" options="{'no_create': True}"/>
@@ -43,7 +58,8 @@
                         <page string="Tickets">
                             <group>
                                 <field name="show_type"/>
-                                <field name="ticket_ids"/>
+                                <field name="purchase_inprogress"/>
+                                <field name="ticket_ids" attrs="{'readonly':['|',('state','=','finished'),'&amp;',('purchase_inprogress','=',False),('state','=','inprogress')]}"/>
                             </group>
                         </page>
                     </notebook>

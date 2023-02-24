@@ -5,6 +5,7 @@
     'license':"LGPL-3",
     'data':[
         'security/ir.model.access.csv',
+        'views/showtime_ticket_order_views.xml',
         'views/showtime_tickets_views.xml',
         'views/showtime_venue_tag_views.xml',
         'views/showtime_shows_views.xml',

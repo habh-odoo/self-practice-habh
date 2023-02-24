@@ -68,6 +68,9 @@
         <field name="model">showtime.venue</field>
         <field name="arch" type="xml">
             <form string="Form View">
+            <header>
+                <button type="object" name="action_view_shows" class="oe_highlight" string="View Shows"/>
+            </header>
                 <sheet>
                     <h1>
                         <group>

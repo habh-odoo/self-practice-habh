@@ -23,3 +23,10 @@ class ShowtimeVenue(models.Model):
     def _compute_section_count(self):
         for record in self:
             record.section_count = len(record.mapped("section_ids"))
+
+    def action_view_shows(self):
+        action = self.env["ir.actions.actions"]._for_xml_id("showtime.showtime_shows_action")
+        action.update({
+            'domain': [('venue_id', '=', self.id)],
+        })
+        return action

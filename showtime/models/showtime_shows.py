@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from odoo import fields,models,api
+from odoo import fields,models,api,exceptions
 from dateutil.relativedelta import relativedelta
 
 RATING = [
     ('0','No Rating'),
-    ('1', 'Terrible'),
-    ('2', 'Bad'),
-    ('3', 'Average'),
-    ('4', 'Good'),
-    ('5','Great')
-]
+    ('1', '1 Star'),
+    ('2', '2 Stars'),
+    ('3', '3 Stars'),
+    ('4', '4 Stars'),
+    ('5','5 Stars')
+    ]
 
 class ShowtimeShows(models.Model):
     _name="showtime.shows"
@@ -27,6 +27,7 @@ class ShowtimeShows(models.Model):
     rating = fields.Selection(RATING,string="Rating",default="0")
     int_rating = fields.Integer(compute="_compute_int_rating",store=True)
     state = fields.Selection(selection=[("booking","Booking"),("inprogress","In-Progress"),("finished","Finished")],default="booking",compute="_compute_state",store=True)
+    purchase_inprogress = fields.Boolean(default=False,string="Purchase Tickets for In-Progress Shows?")
 
     @api.depends("rating")
     def _compute_int_rating(self):
@@ -42,3 +43,12 @@ class ShowtimeShows(models.Model):
                 record.state="finished"
             else:
                 record.state="inprogress"
+
+    @api.constrains("start_time","end_time")
+    def _constraint_time(self):
+        for record in self:
+            for shows in record.section_id.show_ids:
+                if((record.start_time>shows.start_time and record.start_time<shows.end_time) or (record.end_time<shows.end_time and record.end_time>shows.start_time)):
+                    raise exceptions.ValidationError("Shows in same Section cannot overlap.")
+                elif(record.start_time==shows.start_time and record.end_time==shows.end_time and record.id!=shows.id):
+                    raise exceptions.ValidationError("Shows in same Section cannot overlap.")

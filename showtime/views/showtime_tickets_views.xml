@@ -4,11 +4,11 @@
         <field name="name">showtime.tickets.tree</field>
         <field name="model">showtime.tickets</field>
         <field name="arch" type="xml">
-            <tree string="Tree View">
+            <tree string="Tree View" decoration-warning="remaining_qty&lt;max_qty" decoration-success="remaining_qty==max_qty"  decoration-danger="remaining_qty==0">
                 <field name="name"/>
                 <field name="price"/>
                 <field name="max_qty"/>
-                <field name="current_qty"/>
+                <field name="current_qty" readonly="1"/>
                 <field name="remaining_qty"/>
             </tree>
         </field>
@@ -25,14 +25,21 @@
                             <field name="name" nolabel="1" class="oe_inline" placeholder="Ticket Type"/>
                         </group>
                     </h1>
-                    <group>
-                        <field name="price"/>
-                        <field name="rows" attrs="{'invisible':[('show_type','=','open')]}"/>
-                        <field name="columns" attrs="{'invisible':[('show_type','=','open')]}"/>
-                        <field name="max_qty" attrs="{'readonly':[('show_type','=','alloted')]}"/>
-                        <field name="current_qty"/>
-                        <field name="show_type" invisible="1"/>
-                    </group>
+                <notebook>
+                    <page string="Configuration">
+                        <group>
+                            <field name="price"/>
+                            <field name="rows" attrs="{'invisible':[('show_type','=','open')]}"/>
+                            <field name="columns" attrs="{'invisible':[('show_type','=','open')]}"/>
+                            <field name="max_qty" attrs="{'readonly':[('show_type','=','alloted')]}"/>
+                            <field name="current_qty" readonly="1"/>
+                            <field name="show_type" invisible="1"/>
+                        </group>
+                    </page>
+                    <page string="Ticket Purchases">
+                        <field name="order_ids"/>
+                    </page>
+                </notebook>
                 </sheet>
             </form>
         </field>

@@ -7,7 +7,8 @@ class ShowtimeVenueTag(models.Model):
     _sql_constraints = [
         ('unique_name','UNIQUE(name)','Tag Name must be unique')
     ]
-    _order = "name"
+    _order = "sequence,name"
 
     name = fields.Char(required=True)
     color = fields.Integer()
+    sequence = fields.Integer("Sequence",default=1)

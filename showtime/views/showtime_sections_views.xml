@@ -7,7 +7,7 @@
             <tree string="Tree View">
                 <field name="name"/>
                 <field name="size"/>
-                <button type="action" name="%(showtime_shows_action)d" string="Shows" icon="fa-ticket"/> 
+                <button type="action" name="%(showtime_shows_section_action)d" string="Shows" icon="fa-ticket"/> 
             </tree>
         </field>
     </record>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="showtime_ticket_order_tree" model="ir.ui.view">
+        <field name="name">showtime.ticket.order.tree</field>
+        <field name="model">showtime.ticket.order</field>
+        <field name="arch" type="xml">
+            <tree string="Tree View" decoration-success="state=='confirm'" decoration-danger="state=='cancel'">
+                <field name="name"/>
+                <field name="buyer"/>
+                <field name="qty"/>
+                <field name="ticket_price"/>
+                <field name="state" invisible="1"/>
+                <button type="object" name="action_confirm_ticket" icon="fa-check" string="Confirm" states="new"/>
+                <button type="object" name="action_cancel_ticket" icon="fa-times" string="Cancel" states="new"/>
+            </tree>
+        </field>
+    </record>
+    <record id="showtime_ticket_order_form" model="ir.ui.view">
+        <field name="name">showtime.ticket.order.form</field>
+        <field name="model">showtime.ticket.order</field>
+        <field name="arch" type="xml">
+            <form string="Form View">
+                <sheet>
+                    <h1>
+                        <group>
+                            <field name="name" nolabel="1" class="oe_inline" placeholder="name"/>
+                        </group>
+                    </h1>
+                        <group>
+                            <field name="buyer"/>
+                            <field name="qty"/>
+                            <field name="ticket_price"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
