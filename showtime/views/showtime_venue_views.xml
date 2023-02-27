@@ -68,10 +68,19 @@
         <field name="model">showtime.venue</field>
         <field name="arch" type="xml">
             <form string="Form View">
-            <header>
-                <button type="object" name="action_view_shows" class="oe_highlight" string="View Shows"/>
-            </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_shows" icon="fa-ticket">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="show_count"/>
+                                    </span>
+                                    <span class="o_stat_text">
+                                        Shows
+                                    </span>
+                                </div>
+                        </button>
+                    </div>
                     <h1>
                         <group>
                             <field name="name" nolabel="1" class="oe_inline" placeholder="Venue Name"/>

@@ -18,6 +18,18 @@ class ShowtimeVenue(models.Model):
     state_id = fields.Many2one("res.country.state", string='State', domain="[('country_id', '=?', country_id)]")
     country_id = fields.Many2one('res.country', string='Country')
     section_count = fields.Integer(compute="_compute_section_count",default=0)
+    show_count = fields.Integer(compute="_compute_show_count",default = 0)
+
+    @api.depends("section_ids")
+    def _compute_show_count(self):
+        for record in self:
+            if(record.section_ids):
+                if(record.section_ids.mapped("show_ids")):
+                    record.show_count = len(record.section_ids.mapped("show_ids"))
+                else:
+                    record.show_count = 0
+            else:
+                record.show_count = 0
 
     @api.depends("section_ids")
     def _compute_section_count(self):

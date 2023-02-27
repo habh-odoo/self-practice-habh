@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 {
     'name':"ShowTime",
-    'depends':['base'],
+    'depends':['base','contacts'],
     'license':"LGPL-3",
     'data':[
         'security/ir.model.access.csv',
+        'views/res_partner_views.xml',
         'views/showtime_ticket_order_views.xml',
         'views/showtime_tickets_views.xml',
         'views/showtime_venue_tag_views.xml',
