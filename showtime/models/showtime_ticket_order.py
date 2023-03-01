@@ -4,9 +4,9 @@ class ShowtimeTicketOrder(models.Model):
     _name="showtime.ticket.order"
     _description="ShowTime Ticket Order Description"
 
-    name = fields.Char(required=True)
+    name = fields.Char(required=True,readonly=True,string="Order Reference",default = lambda self:('New'))
     ticket_id = fields.Many2one("showtime.tickets")
-    buyer = fields.Many2one("res.users")
+    buyer_id = fields.Many2one("res.partner")
     qty = fields.Integer(string="Quantity")
     ticket_price = fields.Integer(compute="_compute_ticket_price",string="Order Amount")
     state = fields.Selection(selection=[("new","New"),("confirm","Confirmed"),("cancel","Cancelled")],default="new")
@@ -16,12 +16,10 @@ class ShowtimeTicketOrder(models.Model):
         for record in self:
             record.ticket_price = record.ticket_id.price*record.qty
 
-    # @api.model
-    # def create(self,vals):
-    #     if(vals.get('name',_('New')==_('New'))):
-    #         vals['name'] = self.env['ir.sequence'].next_by_code('name') or _('New')
-    #     res = super(ShowtimeTicketOrder,self).create(vals)
-    #     return res
+    @api.model
+    def create(self,vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('showtime.ticket.order')
+        return super(ShowtimeTicketOrder,self).create(vals)
     
     def action_confirm_ticket(self):
         for record in self:
