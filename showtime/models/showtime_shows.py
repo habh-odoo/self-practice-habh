@@ -26,23 +26,13 @@ class ShowtimeShows(models.Model):
     show_type = fields.Selection(string="Type of Seating",selection=[("open","Open Seating"),("alloted","Alloted Seating")],default="alloted",required=True)
     rating = fields.Selection(RATING,string="Rating",default="0")
     int_rating = fields.Integer(compute="_compute_int_rating",store=True)
-    state = fields.Selection(selection=[("booking","Booking"),("inprogress","In-Progress"),("finished","Finished")],default="booking",compute="_compute_state",store=True)
+    state = fields.Selection(selection=[("booking","Booking"),("inprogress","In-Progress"),("finished","Finished")],default="booking")
     purchase_inprogress = fields.Boolean(default=False,string="Purchase Tickets for In-Progress Shows?")
 
     @api.depends("rating")
     def _compute_int_rating(self):
         for record in self:
             record.int_rating = int(record.rating)
-
-    @api.depends("start_time","end_time")
-    def _compute_state(self):
-        for record in self:
-            if(fields.Datetime.now()<record.start_time):
-                record.state="booking"
-            elif(fields.Datetime.now()>record.end_time):
-                record.state="finished"
-            else:
-                record.state="inprogress"
 
     @api.constrains("start_time","end_time")
     def _constraint_time(self):
@@ -52,3 +42,13 @@ class ShowtimeShows(models.Model):
                     raise exceptions.ValidationError("Shows in same Section cannot overlap.")
                 elif(record.start_time==shows.start_time and record.end_time==shows.end_time and record.id!=shows.id):
                     raise exceptions.ValidationError("Shows in same Section cannot overlap.")
+
+    def cron_state(self):
+        records = self.search([])
+        for record in records:
+            if(fields.Datetime.now()<record.start_time):
+                record.state="booking"
+            elif(fields.Datetime.now()>record.end_time):
+                record.state="finished"
+            else:
+                record.state="inprogress"

@@ -11,4 +11,3 @@ class ShowtimeVenueTypes(models.Model):
 
     name = fields.Char(required=True)
     sequence = fields.Integer("Sequence",default=1)
-    
