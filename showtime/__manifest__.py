@@ -14,6 +14,8 @@
         'views/showtime_venue_views.xml',
         'views/showtime_venue_type_views.xml',
         'views/showtime_menus.xml',
+        'report/showtime_report_templates.xml',
+        'report/showtime_report.xml',
         'data/showtime_data.xml',
         'data/cron_data.xml',
     ],

@@ -16,15 +16,17 @@ class ShowtimeTicketOrder(models.Model):
         for record in self:
             record.ticket_price = record.ticket_id.price*record.qty
 
-    @api.model
-    def create(self,vals):
-        vals['name'] = self.env['ir.sequence'].next_by_code('showtime.ticket.order')
-        return super(ShowtimeTicketOrder,self).create(vals)
+    @api.model_create_multi
+    def create(self,vals_list):
+        for vals in vals_list:
+            vals['name'] = self.env['ir.sequence'].next_by_code('showtime.ticket.order')
+        return super(ShowtimeTicketOrder,self).create(vals_list)
     
     def action_confirm_ticket(self):
         for record in self:
-            record.ticket_id.current_qty += record.qty
-            record.state="confirm"
+            if(record.state=="new"):
+                record.ticket_id.current_qty += record.qty
+                record.state="confirm"
     
     def action_cancel_ticket(self):
         for record in self:

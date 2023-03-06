@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="seq_proposal_proposal" model="ir.sequence">
+        <field name="name">Proposal</field>
+        <field name="code">proposal.proposal</field>
+        <field name="prefix">prefix_key</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

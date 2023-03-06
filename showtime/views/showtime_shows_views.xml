@@ -31,6 +31,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_confirm_tickets" type="object" string="Confirm Tickets" icon="fa-check"/>
+                    <button name="%(report_show)d" type="action" string="Print" icon="fa-print"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>

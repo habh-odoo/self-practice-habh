@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_show_tickets">
+        <t t-foreach="docs" t-as="show">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p style="font-size:26px">
+                            <span t-field="show.name"/> (<span t-field="show.venue_id.name"/> : <span t-field="show.section_id.name"/>)
+                        </p>
+                        <t t-if="show.ticket_ids">
+                            <t t-foreach="show.ticket_ids" t-as="ticket_orders">
+                                <b style="font-size:22px">
+                                    <span t-field="ticket_orders.name"/>
+                                </b>
+                                <div>
+                                    <strong>Price: </strong>
+                                    <span t-field="ticket_orders.price"/>
+                                </div>
+                                <div>
+                                    <strong>Total Tickets: </strong>
+                                    <span t-field="ticket_orders.max_qty"/>
+                                </div>
+                                <div>
+                                    <strong>Booked Tickets: </strong>
+                                    <span t-field="ticket_orders.current_qty"/>
+                                </div>
+                                <div>
+                                    <strong>Remaining Tickets: </strong>
+                                    <span t-field="ticket_orders.remaining_qty"/>
+                                </div>
+                                <t t-if="ticket_orders.order_ids">
+                                    <t t-call="showtime.ticket_template"/>
+                                </t>
+                                <t t-else="">
+                                    <div>
+                                        <strong>There are no Ticket Purchases yet.</strong>
+                                    </div>
+                                </t>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="ticket_template">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order Reference</th>
+                    <th>Buyer</th>
+                    <th>Quantity</th>
+                    <th>Order Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="tickets" t-value="ticket_orders.mapped('order_ids')"/>
+                <tr t-foreach="tickets" t-as="ticket">
+                    <td>
+                        <span t-field="ticket.name"/>
+                    </td>
+                    <td>
+                        <span t-field="ticket.buyer_id"/>
+                    </td>
+                    <td>
+                        <span t-field="ticket.qty"/>
+                    </td>
+                    <td>
+                        <span t-field="ticket.ticket_price"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+</odoo>

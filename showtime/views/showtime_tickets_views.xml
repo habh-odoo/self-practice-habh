@@ -10,6 +10,7 @@
                 <field name="max_qty"/>
                 <field name="current_qty" readonly="1"/>
                 <field name="remaining_qty"/>
+                <button type="object" name="action_confirm_ticket_orders" string="Confirm Tickets" icon="fa-check"/>
             </tree>
         </field>
     </record>

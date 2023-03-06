@@ -33,6 +33,12 @@ class ShowtimeTickets(models.Model):
             else:
                 record.rows=""
                 record.columns=""
+
+    def action_confirm_ticket_orders(self):
+        for record in self:
+            if(record.order_ids):
+                for order in record.order_ids:
+                    order.action_confirm_ticket()
     
     def _inverse_max_qty(self):
         for record in self:

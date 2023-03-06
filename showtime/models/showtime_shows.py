@@ -43,6 +43,12 @@ class ShowtimeShows(models.Model):
                 elif(record.start_time==shows.start_time and record.end_time==shows.end_time and record.id!=shows.id):
                     raise exceptions.ValidationError("Shows in same Section cannot overlap.")
 
+    def action_confirm_tickets(self):
+        for record in self:
+            if(record.ticket_ids):
+                for ticket in record.ticket_ids:
+                    ticket.action_confirm_ticket_orders()
+
     def cron_state(self):
         records = self.search([])
         for record in records:
