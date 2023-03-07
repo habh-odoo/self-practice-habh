@@ -6,7 +6,7 @@ class ShowtimeTicketOrder(models.Model):
 
     name = fields.Char(required=True,readonly=True,string="Order Reference",default = lambda self:('New'))
     ticket_id = fields.Many2one("showtime.tickets")
-    buyer_id = fields.Many2one("res.partner")
+    buyer_id = fields.Many2one("res.partner",default= lambda self : self.env.user.partner_id)
     qty = fields.Integer(string="Quantity")
     ticket_price = fields.Integer(compute="_compute_ticket_price",string="Order Amount")
     state = fields.Selection(selection=[("new","New"),("confirm","Confirmed"),("cancel","Cancelled")],default="new")

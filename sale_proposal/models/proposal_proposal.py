@@ -19,6 +19,7 @@ class ProposalProposal(models.Model):
                               default="notreview",
                               required=True)
     sale_order_id = fields.Many2one("sale.order")
+    order_line = fields.One2many("sale.order.line.proposal","order_id")
 
     @api.model_create_multi
     def create(self, vals_list):

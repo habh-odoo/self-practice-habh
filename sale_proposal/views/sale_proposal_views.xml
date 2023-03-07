@@ -29,7 +29,7 @@
             <header>
                 <field name="authorized_transaction_ids" invisible="1"/>
                 <field name="status" invisible="1"/>
-                <button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary" data-hotkey="g"/>
+                <button name="action_quotation_send" string="Send by Email" type="object" states="draft,sent" class="btn-primary" data-hotkey="g"/>
                 <button name="action_confirm" data-hotkey="v" class="oe_primary" string="Confirm" type="object" attrs="{'invisible':[('status','!=','approved')]}"/>
                 <field name="state" widget="statusbar"/>
             </header>
@@ -48,7 +48,7 @@
                     <group name="order_details">
                         <field name="validity_date" attrs="{'invisible': [('state', 'in', ['sale', 'done'])]}"/>
                         <div class="o_td_label" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}">
-                            <label for="date_order" string="Quotation Date"/>
+                            <label for="date_order" string="Proposal Date"/>
                         </div>
                         <field name="date_order" nolabel="1" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}"/>
                         <div class="o_td_label" attrs="{'invisible': [('state', 'in', ['draft', 'sent'])]}">
