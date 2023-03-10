@@ -8,6 +8,7 @@
     'data':[
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'views/proposal_portal_templates.xml',
         'reports/report_template.xml',
         'reports/ir_actions_report.xml',
         'data/mail_template_data.xml',

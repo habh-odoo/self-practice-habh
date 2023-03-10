@@ -80,4 +80,4 @@ class ProposalProposal(models.Model):
         :rtype: record of `mail.template` or `None` if not found
         """
         self.ensure_one()
-        return self.env.ref('sale_proposal.email_template', raise_if_not_found=False)
+        return self.env.ref('sale_proposal.sale_template', raise_if_not_found=False)
