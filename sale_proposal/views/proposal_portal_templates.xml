@@ -1,8 +1,41 @@
 <odoo>
-    <template id="proposal_details_view">
+	<template id="proposal_details_view">
 		<t t-call="website.layout">
 			<div class="container" style="margin-top:50px">
-                <h2 t-field="proposal.name"/>
+				<h2 t-field="proposal.name"/>
+				<br/>
+				<div>
+					<h3 t-field="proposal.partner_id"/>
+				</div>
+				<div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Product Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Subtotal</th>
+							</tr>
+						</thead>
+						<tbody>
+							<t t-set="products" t-value="proposal.mapped('order_line')"/>
+							<tr t-foreach="products" t-as="product">
+								<td>
+									<span t-field="product.product_id.name"/>
+								</td>
+								<td>
+									<input t-attf-value="{{product.product_uom_qty}}"/>
+								</td>
+								<td>
+									<span t-field="product.price_unit"/>
+								</td>
+								<td>
+									<span t-field="product.price_subtotal"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</t>
 	</template>
