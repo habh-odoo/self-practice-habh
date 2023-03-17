@@ -27,7 +27,7 @@
 									<input t-attf-value="{{product.product_uom_qty}}"/>
 								</td>
 								<td>
-									<span t-field="product.price_unit"/>
+									<input t-attf-value="{{product.price_unit}}"/>
 								</td>
 								<td>
 									<span t-field="product.price_subtotal"/>
